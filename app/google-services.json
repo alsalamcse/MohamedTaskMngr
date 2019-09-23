@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "901877988771",
+    "firebase_url": "https://mohamedtaskmngr.firebaseio.com",
+    "project_id": "mohamedtaskmngr",
+    "storage_bucket": "mohamedtaskmngr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901877988771:android:9ce6d8f3bba8f9efd66e16",
+        "android_client_info": {
+          "package_name": "com.example.mohamedtaskmngr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901877988771-sk9lbt36dptpda4vqlo0v5tjs9mkrm17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mohamedtaskmngr",
+            "certificate_hash": "8d4e87598d212bdb282d05faa7766dc9c486dbdf"
+          }
+        },
+        {
+          "client_id": "901877988771-mqlep0u7lbstkuhqfecbo9jvcjbl3pvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlLb0RK2n2Fu3tL0jMZEdDOMmjSefTHKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901877988771-mqlep0u7lbstkuhqfecbo9jvcjbl3pvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
