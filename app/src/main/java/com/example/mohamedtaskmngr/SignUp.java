@@ -1,10 +1,17 @@
 package com.example.mohamedtaskmngr;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUp extends AppCompatActivity {
     private EditText etFirstName,etLastName,etPhone,etEmail,etPassword,etRePassword;
@@ -24,4 +31,54 @@ public class SignUp extends AppCompatActivity {
        etRePassword=findViewById(R.id.etRePassword);
        btnSave=findViewById(R.id.btnSave);
     }
+
+
+    private void dataHandler() {
+        String email = etEmail.getText().toString();
+        String passw = etPassword.getText().toString();
+        String firstname = etFirstName.getText().toString();
+        String lastname = etLastName.getText().toString();
+        String repassword = etRePassword.getText().toString();
+        String phone = etPhone.getText().toString();
+        boolean isok = true;
+        if (isValidEmailAddress(email) == false) {
+            etEmail.setError("Invalid Email");
+            isok = false;
+
+        }
+        if (isok) {
+            signIn(email, passw);
+
+
+        }
+    }
+    public boolean isValidEmailAddress(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches();
+    }
+    private void signIn(String email,String passw){
+
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        auth.signInWithEmailAndPassword(email, passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task)
+            {
+                if(task.isSuccessful())
+                {
+                    // todo go to main screen (all task activity)
+
+                    Intent i=new Intent(getApplication(),SignIn.class);
+                    startActivity(i);
+                }
+                else {
+                    etEmail.setError("email or passowrd is wrong");
+                }
+
+            }
+        });
+    }
+
+
 }

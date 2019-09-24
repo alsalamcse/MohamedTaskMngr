@@ -1,12 +1,17 @@
 package com.example.mohamedtaskmngr;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignIn extends AppCompatActivity {
@@ -61,9 +66,11 @@ public class SignIn extends AppCompatActivity {
 
         }
         if (isok){
+            signIn(email,passw);
+
 
         }
-
+//sign in(email,pass)
     }
 
     public boolean isValidEmailAddress(String email) {
@@ -75,7 +82,23 @@ public class SignIn extends AppCompatActivity {
     private void signIn(String email,String passw){
 
         FirebaseAuth  auth=FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(email, passw);
+        auth.signInWithEmailAndPassword(email, passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task)
+            {
+                if(task.isSuccessful())
+                {
+                    // todo go to main screen (all task activity)
+
+                    Intent i=new Intent(getApplication(),TempAllTaskActivity.class);
+                    startActivity(i);
+                }
+                else {
+                    etemail.setError("email or passowrd is wrong");
+                }
+
+            }
+        });
     }
 
 
