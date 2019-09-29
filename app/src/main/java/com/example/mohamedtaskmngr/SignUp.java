@@ -41,17 +41,34 @@ public class SignUp extends AppCompatActivity {
         String repassword = etRePassword.getText().toString();
         String phone = etPhone.getText().toString();
         boolean isok = true;
-        if (isValidEmailAddress(email) == false) {
-            etEmail.setError("Invalid Email");
-            isok = false;
+            if ( email.length()<4 ||
+            email.indexOf('@') < 0||
+            email.indexOf('.')<0)
+            {
+                etEmail.setError("Invalid Email");
+                isok = false;
+
+            }
+            if (passw.length()<8||passw.equals(repassword)==false)
+            {
+                etPassword.setError("Have To Be At Least 8 char and the same password");
+                etRePassword.setError("Have To Be At Least 8 char and the same password");
+
+                isok=false;
+            }
+            if (firstname.length()==0)
+            {
+              etFirstName.setError("Enter Name");
+              isok=false;
+            }
+        if (isok)
+        {
 
         }
-        if (isok) {
-            signIn(email, passw);
 
-
-        }
     }
+
+
     public boolean isValidEmailAddress(String email) {
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
