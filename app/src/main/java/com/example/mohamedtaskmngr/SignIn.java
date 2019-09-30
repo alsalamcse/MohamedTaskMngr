@@ -57,24 +57,24 @@ public class SignIn extends AppCompatActivity {
         String email=etemail.getText().toString();
         String passw=etpassword.getText().toString();
         boolean isok=true;
-//        if (email.length()<4)
-//        {
-//            etemail.setError("Email length error");
-//            isok=false;
-//        }
-//        if (email.indexOf("@")<0 || email.indexOf(".")<0)
-//        {
-//            etemail.setError("Email wrong format");
-//            isok= false;
-//        }
-//        if (passw.length()<8)
-//        {
-//            etpassword.setError("password length error");
-//            isok=false;
-//        }
-        if(isValidEmailAddress(email)==false){
-            etemail.setError("Invalid Email");
+        if (email.length()<4)
+        {
+            etemail.setError("Email length error");
             isok=false;
+        }
+        if (email.indexOf("@")<0 || email.indexOf(".")<0)
+        {
+            etemail.setError("Email wrong format");
+            isok= false;
+       }
+        if (passw.length()<8)
+        {
+            etpassword.setError("password length error");
+             isok=false;
+//        }
+ //       if(isValidEmailAddress(email)==false){
+ //           etemail.setError("Invalid Email");
+   //         isok=false;
 
         }
         if (isok){
