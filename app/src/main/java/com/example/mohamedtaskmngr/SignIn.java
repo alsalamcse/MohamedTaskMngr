@@ -31,10 +31,15 @@ public class SignIn extends AppCompatActivity {
 
 
 
-        btnsignup.setOnClickListener((view){
-           Intent i=new Intent(getApplicationContext(),SignUp.class);
-                startActivity(i);
-                }
+       btnsignup.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent i= new Intent(getApplication(),SignUp.class);
+               startActivity(i);
+           }
+       });
+
+
 
 
         btnsignin.setOnClickListener(new View.OnClickListener() {
