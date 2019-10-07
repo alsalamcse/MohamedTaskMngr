@@ -34,7 +34,8 @@ public class MainTasksActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "add task", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                Intent i=new Intent(getApplication(),)
+                Intent i=new Intent(getApplication(), addTask.class);
+                startActivity(i);
             }
         });
     }
