@@ -33,7 +33,8 @@ public class SignUp extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
 
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dataHandler();
