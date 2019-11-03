@@ -51,6 +51,12 @@ public class AllTasksFragment extends Fragment {
                     MyTask t=d.getValue(MyTask.class);
                     Log.d("MYTask",t.toString());
 
+
+
+
+
+
+
                 }
 
 
