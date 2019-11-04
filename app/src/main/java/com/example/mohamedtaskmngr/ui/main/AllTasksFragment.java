@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.mohamedtaskmngr.R;
 import com.example.mohamedtaskmngr.data.MyTask;
+import com.example.mohamedtaskmngr.data.TasksAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +26,8 @@ import com.google.firebase.database.ValueEventListener;
  * A simple {@link Fragment} subclass.
  */
 public class AllTasksFragment extends Fragment {
+   private TasksAdapter tasksAdapter;
+   private ListView lvTasks;
 
 
     public AllTasksFragment() {
@@ -34,8 +38,11 @@ public class AllTasksFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        tasksAdapter=new TasksAdapter(getContext());
+        View view = inflater.inflate(R.layout.fragment_all_tasks, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_tasks, container, false);
+        return view;
+
     }
     public void  readTasksFromFirebase()
     {
