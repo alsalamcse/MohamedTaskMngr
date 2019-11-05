@@ -44,12 +44,22 @@ public class AllTasksFragment extends Fragment {
         return view;
 
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        readTasksFromFirebase();
+
+    }
+
+
     public void  readTasksFromFirebase()
     {
         FirebaseDatabase database=FirebaseDatabase.getInstance();//CONNECT TO DATABASE
         FirebaseAuth auth=FirebaseAuth.getInstance();//to get curret uid
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
+        tasksAdapter.clear();
         reference.child("tasks").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)//ae
@@ -57,6 +67,7 @@ public class AllTasksFragment extends Fragment {
                 for (DataSnapshot d:dataSnapshot.getChildren()) {
                     MyTask t=d.getValue(MyTask.class);
                     Log.d("MYTask",t.toString());
+                    tasksAdapter.add(t);
 
 
 
