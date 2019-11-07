@@ -9,7 +9,6 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/itmRatingPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#AEEAF1E0">
@@ -53,15 +52,15 @@
                 android:text="IsCompleted" />
 
             <RatingBar
-                android:id="@+id/ratingBar"
+                android:id="@+id/itmRatingPriority"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="207dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
                 android:background="#918F92" />
         </RelativeLayout>
 

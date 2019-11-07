@@ -15,8 +15,6 @@ import androidx.annotation.Nullable;
 
 import com.example.mohamedtaskmngr.R;
 
-import java.util.zip.Inflater;
-
 public class TasksAdapter extends ArrayAdapter<MyTask>
 {
 
@@ -35,7 +33,7 @@ public class TasksAdapter extends ArrayAdapter<MyTask>
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //6) building item view
-        View vitem= LayoutInflater.from(getContext()).inflate(R.layout.taskitem,parent,true);
+        View vitem= LayoutInflater.from(getContext()).inflate(R.layout.taskitem,parent,false);
 //7
         TextView tvTitlle=vitem.findViewById(R.id.itmTvTittle);
         TextView tvSubject=vitem.findViewById(R.id.itmTvSubject);
@@ -51,6 +49,12 @@ public class TasksAdapter extends ArrayAdapter<MyTask>
         rbPrio.setRating(myTask.getImportant());
         cbIsCompleted.setChecked(false);
         return vitem;
+
+
+
+
+
+
 
 
 
