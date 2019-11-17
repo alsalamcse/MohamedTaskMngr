@@ -67,7 +67,7 @@ public class AllTasksFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)//ae
             {
-                tasksAdapter.clear();
+
 
                 for (DataSnapshot d:dataSnapshot.getChildren()) {
                     MyTask t=d.getValue(MyTask.class);
@@ -82,7 +82,7 @@ public class AllTasksFragment extends Fragment {
 
                 }
 
-
+                tasksAdapter.clear();
 
             }
 
