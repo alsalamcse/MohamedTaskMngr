@@ -73,6 +73,7 @@ public class addTask extends AppCompatActivity {
 
         DatabaseReference reference = database.getReference();
         String key = reference.child("tasks").push().getKey();
+        t.setKey(key);
         reference.child("tasks").child(uid).child(key).setValue(t).addOnCompleteListener(addTask.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

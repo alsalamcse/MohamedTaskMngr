@@ -62,27 +62,21 @@ public class AllTasksFragment extends Fragment {
         String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
 
-
+//real time database
         reference.child("tasks").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)//ae
             {
 
-
+                tasksAdapter.clear();
                 for (DataSnapshot d:dataSnapshot.getChildren()) {
                     MyTask t=d.getValue(MyTask.class);
                     Log.d("MYTask",t.toString());
                     tasksAdapter.add(t);
 
-
-
-
-
-
-
                 }
 
-                tasksAdapter.clear();
+
 
             }
 
