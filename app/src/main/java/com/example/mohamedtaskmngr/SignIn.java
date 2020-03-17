@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.mohamedtaskmngr.ui.main.AllTasksFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignIn extends AppCompatActivity {
     private EditText etemail,etpassword;
     private Button btnsignin,btnsignup;
+    private Button btnClient,btnManager;
 
 
 
@@ -28,6 +30,8 @@ public class SignIn extends AppCompatActivity {
         etpassword=findViewById(R.id.etpassword);
         btnsignin=findViewById(R.id.btnsignin);
         btnsignup=findViewById(R.id.btnsignup);
+
+
 
 
 

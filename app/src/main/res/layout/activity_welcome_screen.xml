@@ -15,5 +15,5 @@
         android:layout_marginTop="92dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_welcome" />
+        app:srcCompat="@mipmap/ic_welcome_foreground" />
 </androidx.constraintlayout.widget.ConstraintLayout>

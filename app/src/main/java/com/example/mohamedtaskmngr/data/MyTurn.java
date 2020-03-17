@@ -1,11 +1,11 @@
 package com.example.mohamedtaskmngr.data;
 
-public class MyTask {
+public class MyTurn {
  private String key;
- private String title;
- private String subject;
+ private String time;
+ private String date;
  private String owner;
- private int important;
+
 
     public String getOwner() {
         return owner;
@@ -16,16 +16,13 @@ public class MyTask {
     }
 
     public String getTitle() {
-        return title;
+        return time;
     }
 
     public String getSubject() {
-        return subject;
+        return date;
     }
 
-    public int getImportant() {
-        return important;
-    }
 
     public void setOwner(String owner) {
         this.owner = owner;
@@ -36,24 +33,21 @@ public class MyTask {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.time = title;
     }
 
     public void setSubject(String subject) {
-        this.subject = subject;
+        this.date = subject;
     }
 
-    public void setImportant(int important) {
-        this.important = important;
-    }
+
 
     @Override
     public String toString() {
-        return "MyTask{" +
+        return "MyTurn{" +
                 "key='" + key + '\'' +
-                ", title='" + title + '\'' +
-                ", subject='" + subject + '\'' +
-                ", important=" + important +
+                ", title='" + time + '\'' +
+                ", subject='" + date + '\'' +
                 '}';
     }
 }

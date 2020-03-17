@@ -26,6 +26,6 @@ public class Settings extends AppCompatActivity {
         tb=findViewById(R.id.tb);
         etFrontSize=findViewById(R.id.etFrontSize);
         sb=findViewById(R.id.sb);
-        btnSave=findViewById(R.id.btnSave);
+        btnSave=findViewById(R.id.btnSave0);
     }
 }

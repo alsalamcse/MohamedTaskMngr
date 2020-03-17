@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.mohamedtaskmngr.R;
-import com.example.mohamedtaskmngr.data.MyTask;
+import com.example.mohamedtaskmngr.data.MyTurn;
 import com.example.mohamedtaskmngr.data.TasksAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 public class AllTasksFragment extends Fragment {
    private TasksAdapter tasksAdapter;
    private ListView lvTasks;
-
 
     public AllTasksFragment() {
         // Required empty public constructor
@@ -70,7 +69,7 @@ public class AllTasksFragment extends Fragment {
 
                 tasksAdapter.clear();
                 for (DataSnapshot d:dataSnapshot.getChildren()) {
-                    MyTask t=d.getValue(MyTask.class);
+                    MyTurn t=d.getValue(MyTurn.class);
                     Log.d("MYTask",t.toString());
                     tasksAdapter.add(t);
 

@@ -8,57 +8,39 @@
 
     <EditText
         android:id="@+id/etTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:layout_marginBottom="34dp"
+        android:layout_width="299dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="75dp"
         android:ems="10"
-        android:hint="Title"
+        android:hint="Time"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/etSubject"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etSubject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="66dp"
+        android:layout_width="298dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginRight="71dp"
+        android:layout_marginBottom="135dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Subject"
+        android:hint="Date"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/etPriority"
-        app:layout_constraintStart_toStartOf="@+id/etTitle"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTitle" />
 
-    <SeekBar
-        android:id="@+id/sb"
-        android:layout_width="356dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
-        android:layout_marginBottom="68dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPriority" />
-
-    <EditText
-        android:id="@+id/etPriority"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Priority"
-        app:layout_constraintBottom_toTopOf="@+id/sb"
-        app:layout_constraintEnd_toEndOf="@+id/sb"
-        app:layout_constraintStart_toStartOf="@+id/sb"
-        app:layout_constraintTop_toBottomOf="@+id/etSubject" />
-
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnSave0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="148dp"
@@ -66,5 +48,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sb" />
+        app:layout_constraintTop_toBottomOf="@+id/etSubject" />
 </androidx.constraintlayout.widget.ConstraintLayout>

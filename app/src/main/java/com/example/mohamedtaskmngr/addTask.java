@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
-import com.example.mohamedtaskmngr.data.MyTask;
+import com.example.mohamedtaskmngr.data.MyTurn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,8 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class addTask extends AppCompatActivity {
     private EditText etTitle;
     private EditText etSubject;
-    private EditText etPriority;
-    private SeekBar sb;
     private Button btnSave;
 
     @Override
@@ -30,9 +27,7 @@ public class addTask extends AppCompatActivity {
         setContentView(R.layout.activity_add_task);
         etTitle = findViewById(R.id.etTitle);
         etSubject = findViewById(R.id.etSubject);
-        etPriority = findViewById(R.id.etPriority);
-        sb = findViewById(R.id.sb);
-        btnSave = findViewById(R.id.btnSave);
+        btnSave = findViewById(R.id.btnSave0);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,8 +40,7 @@ public class addTask extends AppCompatActivity {
 
     private void dataHandler() {
         String tittle = etTitle.getText().toString();
-        String subject = etSubject.getText().toString();
-        int seekbar = sb.getProgress();
+        String subject = etSubject.getText().toString();;
         boolean isok = true;
         if (tittle.length()==0) {
             etTitle.setError("enter tittle");
@@ -57,13 +51,13 @@ public class addTask extends AppCompatActivity {
             isok = false;
 
         }
-        MyTask t=new MyTask();
+        MyTurn t=new MyTurn();
         t.setSubject(subject);
         t.setTitle(tittle);
         creatMyTaskk(t);
     }
 
-    private void creatMyTaskk(MyTask t) {                                    //save in data base ******important
+    private void creatMyTaskk(MyTurn t) {                                    //save in data base ******important
        //1.building object in data base
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         FirebaseAuth auth= FirebaseAuth.getInstance();  //to get user uid  //1

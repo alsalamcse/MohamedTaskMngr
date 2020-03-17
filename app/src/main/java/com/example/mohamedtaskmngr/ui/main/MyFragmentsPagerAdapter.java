@@ -17,7 +17,7 @@ import com.example.mohamedtaskmngr.R;
 public class MyFragmentsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1};
     private final Context mContext;
     ///1
     private AllTasksFragment allTasksFragment;
@@ -59,6 +59,6 @@ public class MyFragmentsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 2;
+        return 1;
     }
 }
