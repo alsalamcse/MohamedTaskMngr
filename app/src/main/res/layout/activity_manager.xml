@@ -14,8 +14,8 @@
         android:layout_marginLeft="85dp"
         android:layout_marginTop="47dp"
         android:ems="10"
+        android:hint="First Name"
         android:inputType="textPersonName"
-        android:text="First Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,8 +27,8 @@
         android:layout_marginLeft="1dp"
         android:layout_marginTop="40dp"
         android:ems="10"
+        android:hint="Last Name"
         android:inputType="textPersonName"
-        android:text="Last Name"
         app:layout_constraintStart_toStartOf="@+id/etFirstName"
         app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
 
@@ -40,13 +40,13 @@
         android:layout_marginLeft="1dp"
         android:layout_marginTop="46dp"
         android:ems="10"
+        android:hint="Phone number"
         android:inputType="textPersonName"
-        android:text="Phone number"
         app:layout_constraintStart_toStartOf="@+id/etLastName"
         app:layout_constraintTop_toBottomOf="@+id/etLastName" />
 
     <Button
-        android:id="@+id/btnSave0"
+        android:id="@+id/btnContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="61dp"

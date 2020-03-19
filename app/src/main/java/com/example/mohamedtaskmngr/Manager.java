@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mohamedtaskmngr.data.MyManager;
-import com.example.mohamedtaskmngr.data.MyTurn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +21,9 @@ public class Manager extends AppCompatActivity {
     private Button btnSave0;
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,7 @@ public class Manager extends AppCompatActivity {
         etFirstName=findViewById(R.id.etFirstName);
         etLastName=findViewById(R.id.etLastName);
         etPhone=findViewById(R.id.etPhone);
-        btnSave0=findViewById(R.id.btnSave0);
+        btnSave0=findViewById(R.id.btnContinue);
 
         btnSave0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,9 +43,9 @@ public class Manager extends AppCompatActivity {
 
     }
     private void dataHandler1() {
-        String firstname = etFirstName.getText().toString();
-        String Lastname = etLastName.getText().toString();
-        String phone = etPhone.getText().toString();
+        final String firstname = etFirstName.getText().toString();
+        final String Lastname = etLastName.getText().toString();
+        final String phone = etPhone.getText().toString();
 
         boolean isok1 = true;
         if (firstname.length() == 0) {
@@ -51,16 +53,34 @@ public class Manager extends AppCompatActivity {
             isok1 = false;
 
         }
-        if (isok1) {
-
-            MyManager M = new MyManager();
-            M.setFname1(firstname);
-            M.setLname1(Lastname);
-            M.setPhone1(phone);
-            creatMyManager(M);
+        if (Lastname.length() == 0) {
+            etFirstName.setError("Enter Name");
+            isok1 = false;
         }
+        if  (phone.length() < 10) {
+            etPhone.setError("Have To Be At Least 10 Numbers");
+            isok1= false;
+
+
+        }
+        if (isok1) {
+            btnSave0.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyManager M = new MyManager();
+                    M.setFname1(firstname);
+                    M.setLname1(Lastname);
+                    M.setPhone1(phone);
+                    creatMyManager(M);
+
+                }
+
+            });
+
+
 
     }
+}
 
 
 

@@ -3,6 +3,7 @@ package com.example.mohamedtaskmngr;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUp extends AppCompatActivity {
     private EditText    etEmail, etPassword, etRePassword;
-    private Button btnSave;
+    private Button btnContinue,btnSave;
     private CheckBox chManager;
 
 
@@ -30,19 +31,25 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
 
-
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         etRePassword = findViewById(R.id.etRePassword);
-        btnSave = findViewById(R.id.btnSave0);
-        chManager=findViewById(R.id.chManager);
+        btnContinue = findViewById(R.id.btnContinue);
+        chManager = findViewById(R.id.chManager);
+        btnSave=findViewById(R.id.btnSave);
+       btnContinue=findViewById(R.id.btnContinue);
 
-        btnSave.setOnClickListener(
-                new View.OnClickListener() {
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 dataHandler();
-
+            }
+        });
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataHandler();
             }
         });
 
@@ -51,8 +58,8 @@ public class SignUp extends AppCompatActivity {
 
 
     private void dataHandler() {
-        String email = etEmail.getText().toString();
-        String passw = etPassword.getText().toString();
+        final String email = etEmail.getText().toString();
+        final String passw = etPassword.getText().toString();
         String repassword = etRePassword.getText().toString();
 
         boolean isok = true;
@@ -70,18 +77,55 @@ public class SignUp extends AppCompatActivity {
             isok = false;
 
         }
-        if (isok) {
+        {
+
+        }
+        if (chManager.isChecked()) {
+            btnContinue.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   Intent i=new Intent(getApplication(),Manager.class);
+                   startActivity(i);
+
+               }
+           });
+
+        }
+        else {
+            btnContinue.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent u=new Intent(getApplication(),Client.class);
+                    startActivity(u);
+
+                }
+            });
+        }
+        if (isok){
+            btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    creatAcount(email,passw);
+                }
+            });
 
 
-            //Creat Acount(email,password)
+
+
+
+
+
+                }
+
 
         }
 
 
-    }
 
 
-    private void creatAcount(String email, String passw) {
+
+
+    private void creatAcount(final String email, String passw) {
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.createUserWithEmailAndPassword(email, passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -90,19 +134,10 @@ public class SignUp extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(SignUp.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
                     finish();
-                        if(chManager.isChecked())
-                        {
-                         creatAcount(Manager);
-                        }
-                        else
-                        {
-                            creatAcount(Client);
 
-                        }
-
-                } else {
-                    etEmail.setError("Sign Up failed");
-
+                }
+                else {
+                    etEmail.setError("Sign up Failed");
                 }
             }
         });

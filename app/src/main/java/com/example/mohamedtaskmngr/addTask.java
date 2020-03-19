@@ -27,7 +27,7 @@ public class addTask extends AppCompatActivity {
         setContentView(R.layout.activity_add_task);
         etTitle = findViewById(R.id.etTitle);
         etSubject = findViewById(R.id.etSubject);
-        btnSave = findViewById(R.id.btnSave0);
+        btnSave = findViewById(R.id.btnContinue);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override

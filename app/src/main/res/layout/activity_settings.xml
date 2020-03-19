@@ -55,13 +55,13 @@
         android:layout_marginEnd="42dp"
         android:layout_marginRight="42dp"
         android:layout_marginBottom="132dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave0"
+        app:layout_constraintBottom_toTopOf="@+id/btnContinue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etFrontSize"
         app:layout_constraintTop_toBottomOf="@+id/etSound" />
 
     <Button
-        android:id="@+id/btnSave0"
+        android:id="@+id/btnContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="252dp"

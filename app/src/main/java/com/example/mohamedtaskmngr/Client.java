@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,12 +31,21 @@ public class Client extends AppCompatActivity {
         etLastName2 = findViewById(R.id.etLastName2);
         etPhone3 = findViewById(R.id.etPhone3);
         btnSave2 = findViewById(R.id.btnSave2);
+
+
+        btnSave2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataHandler1();
+            }
+        });
     }
 
+
     private void dataHandler1() {
-        String firstname = etFirstName2.getText().toString();
-        String Lastname = etLastName2.getText().toString();
-        String phone = etPhone3.getText().toString();
+        final String firstname = etFirstName2.getText().toString();
+        final String Lastname = etLastName2.getText().toString();
+        final String phone = etPhone3.getText().toString();
 
 
         boolean isok2 = true;
@@ -44,12 +54,27 @@ public class Client extends AppCompatActivity {
             isok2 = false;
 
         }
+        if (Lastname.length() == 0) {
+            etLastName2.setError("Enter Name");
+            isok2 = false;
+        }
+        if (phone.length() < 10) {
+            etPhone3.setError("Have To Be At Least 10 Numbers");
+            isok2= false;
+
+        }
         if (isok2) {
-            MyClient C = new MyClient();
-            C.setEtFirstName2(firstname);
-            C.setEtLastName2(Lastname);
-            C.getEtPhone3(phone);
-            creatMyClient(C);
+            btnSave2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyClient C = new MyClient();
+                    C.setEtFirstName2(firstname);
+                    C.setEtLastName2(Lastname);
+                    C.getEtPhone3(phone);
+                    creatMyClient(C);
+                }
+            });
+
         }
 
         }
